@@ -1,29 +1,15 @@
-// console.clear();
 let contentTitle;
 console.log(document.cookie);
+
 function dynamicClothingSection(ob) {
   let boxDiv = document.createElement("div");
   boxDiv.id = "box";
+
   let boxLink = document.createElement("a");
   boxLink.href = "/contentDetails.html?" + ob.id;
 
-  let imgTag = document.createElement("img");
-  imgTag.src = ob.preview;
-
-  let detailsDiv = document.createElement("div");
-  detailsDiv.id = "details";
-  let h3 = document.createElement("h3");
-  let h3Text = document.createTextNode(ob.name);
-  h3.appendChild(h3Text);
-  let h4 = document.createElement("h4");
-  let h4Text = document.createTextNode(ob.brand);
-  h4.appendChild(h4Text);
-  let h2 = document.createElement("h2");
-  let h2Text = document.createTextNode("rs  " + ob.price);
-  h2.appendChild(h2Text);
-
-  // Data layer push on product click
-  boxDiv.onclick = function() {
+  // Add event listener directly to the anchor:
+  boxLink.addEventListener("click", function () {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'select_item',
@@ -37,8 +23,19 @@ function dynamicClothingSection(ob) {
         }]
       }
     });
-  };
+  });
 
+  let imgTag = document.createElement("img");
+  imgTag.src = ob.preview;
+
+  let detailsDiv = document.createElement("div");
+  detailsDiv.id = "details";
+  let h3 = document.createElement("h3");
+  h3.appendChild(document.createTextNode(ob.name));
+  let h4 = document.createElement("h4");
+  h4.appendChild(document.createTextNode(ob.brand));
+  let h2 = document.createElement("h2");
+  h2.appendChild(document.createTextNode("rs  " + ob.price));
   boxDiv.appendChild(boxLink);
   boxLink.appendChild(imgTag);
   boxLink.appendChild(detailsDiv);
@@ -47,14 +44,11 @@ function dynamicClothingSection(ob) {
   detailsDiv.appendChild(h2);
   return boxDiv;
 }
-//  TO SHOW THE RENDERED CODE IN CONSOLE
-// console.log(dynamicClothingSection());
-// console.log(boxDiv)
+
 let mainContainer = document.getElementById("mainContainer");
 let containerClothing = document.getElementById("containerClothing");
 let containerAccessories = document.getElementById("containerAccessories");
-// mainContainer.appendChild(dynamicClothingSection('hello world!!'))
-// BACKEND CALLING
+
 let httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function() {
   if (this.readyState === 4) {
