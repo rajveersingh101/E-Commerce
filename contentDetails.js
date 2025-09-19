@@ -1,96 +1,81 @@
 console.clear()
-
 let id = location.search.split('?')[1]
 console.log(id)
-
-if(document.cookie.indexOf(',counter=')>=0)
-{
+if(document.cookie.indexOf(',counter=') >= 0) {
     let counter = document.cookie.split(',')[1].split('=')[1]
     document.getElementById("badge").innerHTML = counter
 }
-
-function dynamicContentDetails(ob)
-{
+function dynamicContentDetails(ob) {
     let mainContainer = document.createElement('div')
     mainContainer.id = 'containerD'
     document.getElementById('containerProduct').appendChild(mainContainer);
-
     let imageSectionDiv = document.createElement('div')
     imageSectionDiv.id = 'imageSection'
-
     let imgTag = document.createElement('img')
-     imgTag.id = 'imgDetails'
-     //imgTag.id = ob.photos
-     imgTag.src = ob.preview
-
+    imgTag.id = 'imgDetails'
+    imgTag.src = ob.preview
     imageSectionDiv.appendChild(imgTag)
-
     let productDetailsDiv = document.createElement('div')
     productDetailsDiv.id = 'productDetails'
-
-    // console.log(productDetailsDiv);
-
     let h1 = document.createElement('h1')
     let h1Text = document.createTextNode(ob.name)
     h1.appendChild(h1Text)
-
     let h4 = document.createElement('h4')
     let h4Text = document.createTextNode(ob.brand)
     h4.appendChild(h4Text)
-    console.log(h4);
-
     let detailsDiv = document.createElement('div')
     detailsDiv.id = 'details'
-
     let h3DetailsDiv = document.createElement('h3')
     let h3DetailsText = document.createTextNode('Rs ' + ob.price)
     h3DetailsDiv.appendChild(h3DetailsText)
-
     let h3 = document.createElement('h3')
     let h3Text = document.createTextNode('Description')
     h3.appendChild(h3Text)
-
     let para = document.createElement('p')
     let paraText = document.createTextNode(ob.description)
     para.appendChild(paraText)
-
     let productPreviewDiv = document.createElement('div')
     productPreviewDiv.id = 'productPreview'
-
     let h3ProductPreviewDiv = document.createElement('h3')
     let h3ProductPreviewText = document.createTextNode('Product Preview')
     h3ProductPreviewDiv.appendChild(h3ProductPreviewText)
     productPreviewDiv.appendChild(h3ProductPreviewDiv)
-
     let i;
-    for(i=0; i<ob.photos.length; i++)
-    {
+    for(i=0; i < ob.photos.length; i++) {
         let imgTagProductPreviewDiv = document.createElement('img')
         imgTagProductPreviewDiv.id = 'previewImg'
         imgTagProductPreviewDiv.src = ob.photos[i]
-        imgTagProductPreviewDiv.onclick = function(event)
-        {
+        imgTagProductPreviewDiv.onclick = function(event) {
+            // Ecommerce select_item data layer event
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'select_item',
+                ecommerce: {
+                    items: [{
+                        item_id: ob.id || '',         // Product ID
+                        item_name: ob.name || '',     // Product Name
+                        item_brand: ob.brand || '',   // Brand
+                        price: ob.price || '',        // Price
+                        item_image: this.src || ''    // Selected image
+                    }]
+                }
+            }); // Data layer push[web:11][web:12]
+
             console.log("clicked" + this.src)
             imgTag.src = ob.photos[i]
             document.getElementById("imgDetails").src = this.src 
-            
         }
         productPreviewDiv.appendChild(imgTagProductPreviewDiv)
     }
-
     let buttonDiv = document.createElement('div')
     buttonDiv.id = 'button'
-
     let buttonTag = document.createElement('button')
     buttonDiv.appendChild(buttonTag)
-
     buttonText = document.createTextNode('Add to Cart')
-    buttonTag.onclick  =   function()
-    {
-        let order = id+" "
+    buttonTag.onclick = function() {
+        let order = id + " "
         let counter = 1
-        if(document.cookie.indexOf(',counter=')>=0)
-        {
+        if(document.cookie.indexOf(',counter=') >= 0) {
             order = id + " " + document.cookie.split(',')[0].split('=')[1]
             counter = Number(document.cookie.split(',')[1].split('=')[1]) + 1
         }
@@ -99,9 +84,6 @@ function dynamicContentDetails(ob)
         console.log(document.cookie)
     }
     buttonTag.appendChild(buttonText)
-
-
-    console.log(mainContainer.appendChild(imageSectionDiv));
     mainContainer.appendChild(imageSectionDiv)
     mainContainer.appendChild(productDetailsDiv)
     productDetailsDiv.appendChild(h1)
@@ -111,18 +93,10 @@ function dynamicContentDetails(ob)
     detailsDiv.appendChild(h3)
     detailsDiv.appendChild(para)
     productDetailsDiv.appendChild(productPreviewDiv)
-    
-    
     productDetailsDiv.appendChild(buttonDiv)
-
-
     return mainContainer
 }
-
-
-
 // BACKEND CALLING
-
 let httpRequest = new XMLHttpRequest()
 {
     httpRequest.onreadystatechange = function()
@@ -142,6 +116,5 @@ let httpRequest = new XMLHttpRequest()
         }
     }
 }
-
 httpRequest.open('GET', 'https://5d76bf96515d1a0014085cf9.mockapi.io/product/'+id, true)
-httpRequest.send()  
+httpRequest.send()
