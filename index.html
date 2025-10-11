@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+            // Define dataLayer and the gtag function.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            // Set default consent for specific regions (US) according to your requirements
+            gtag('consent', 'default', {
+              'ad_storage': 'granted',
+              'ad_user_data': 'granted',
+              'personalization_storage': 'granted',
+              'ad_personalization': 'granted',
+              'analytics_storage': 'granted',
+              'functionality_storage': 'granted',
+              'security_storage': 'granted',
+            'region':['US']
+            });
+            // Set default consent for all other regions according to your requirements
+            // For Global (OPT-IN Consent Model)
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'personalization_storage': 'denied',
+              'ad_personalization': 'denied',
+              'analytics_storage': 'denied',
+              'functionality_storage': 'denied',
+              'security_storage': 'granted',
+            });
+          </script>
+    <!-- OptanonConsentNoticeStart -->
+    <!--   <script type="text/javascript" src="https://cdn-ukwest.onetrust.com/consent/0ce9e50e-2593-4d5a-80ee-c6dd86f53a0d/OtAutoBlock.js" ></script> -->
+    <script src="https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="0ce9e50e-2593-4d5a-80ee-c6dd86f53a0d" defer></script>
+    <script type="text/javascript">
+    function OptanonWrapper() { }
+    </script>
     <!-- Google Tag Manager -->
 <script type="text/plain" class="optanon-category-C0004>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
