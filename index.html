@@ -14,24 +14,12 @@
   <meta http-equiv="Content-Security-Policy"
     content="
       default-src 'self';
-      script-src 'self' 'unsafe-inline'
-        https://gtm.knoxtrails.com
-        https://kit.fontawesome.com
-        https://cdnjs.cloudflare.com;
-      connect-src 'self' https://gtm.knoxtrails.com;
-      img-src 'self' data:
-        https://gtm.knoxtrails.com
-        https://www.googletagmanager.com
-        https://yt3.ggpht.com;
-      frame-src
-        https://gtm.knoxtrails.com
-        https://www.googletagmanager.com;
-      style-src 'self' 'unsafe-inline'
-        https://fonts.googleapis.com
-        https://cdnjs.cloudflare.com;
-      font-src
-        https://fonts.gstatic.com
-        https://cdnjs.cloudflare.com;
+      script-src 'self' 'unsafe-inline' https://*.knoxtrails.com https://knoxtrails.com https://kit.fontawesome.com https://cdnjs.cloudflare.com https://ka-f.fontawesome.com;
+      connect-src 'self' https://*.knoxtrails.com https://knoxtrails.com https://ka-f.fontawesome.com;
+      img-src 'self' data: https://*.knoxtrails.com https://knoxtrails.com https://www.googletagmanager.com https://yt3.ggpht.com https://www.google-analytics.com;
+      frame-src https://*.knoxtrails.com https://knoxtrails.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://ka-f.fontawesome.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://ka-f.fontawesome.com;
     ">
 
   <!-- ================== FAVICON ================== -->
