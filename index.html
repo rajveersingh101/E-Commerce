@@ -1,119 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta http-equiv="Content-Security-Policy"
-      content="
-        script-src 'self' https://gtm.knoxtrails.com;
-        connect-src 'self' https://gtm.knoxtrails.com;
-        img-src 'self' https://gtm.knoxtrails.com data:;
-        frame-src 'self' https://gtm.knoxtrails.com;
-      ">
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="/style.css"> -->
-    <title> E-COMMERCE WEBSITE | CREATED BY Rajveer Singh </title>
-    <!-- favicon -->
-    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
-    <!-- header links -->
-    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <!-- slider links -->
-    <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="js/jQuery3.4.1.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://gtm.knoxtrails.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5XX94PVX');</script>
-<!-- End Google Tag Manager -->
- 
+
+  <!-- ================== BASIC META ================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>E-COMMERCE WEBSITE | Created by Rajveer Singh</title>
+
+  <!-- ================== CONTENT SECURITY POLICY ================== -->
+  <!-- NOTE: For production, move this to HTTP headers and replace unsafe-inline with hashes -->
+  <meta http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline'
+        https://gtm.knoxtrails.com
+        https://kit.fontawesome.com
+        https://cdnjs.cloudflare.com;
+      connect-src 'self' https://gtm.knoxtrails.com;
+      img-src 'self' data:
+        https://gtm.knoxtrails.com
+        https://www.googletagmanager.com
+        https://yt3.ggpht.com;
+      frame-src
+        https://gtm.knoxtrails.com
+        https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline'
+        https://fonts.googleapis.com
+        https://cdnjs.cloudflare.com;
+      font-src
+        https://fonts.gstatic.com
+        https://cdnjs.cloudflare.com;
+    ">
+
+  <!-- ================== FAVICON ================== -->
+  <link rel="icon"
+        href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo"
+        type="image/png">
+
+  <!-- ================== STYLES ================== -->
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+  <!-- ================== FONT AWESOME ================== -->
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+
+  <!-- ================== LOCAL SCRIPTS ================== -->
+  <script src="js/jQuery3.4.1.js"></script>
+
+  <!-- ================== GOOGLE TAG MANAGER ================== -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l !== 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://gtm.knoxtrails.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5XX94PVX');
+  </script>
+  <!-- ================== END GTM ================== -->
+
 </head>
 
 <body>
-    
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNCWSJXB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
+  <!-- ================== GTM (NOSCRIPT) ================== -->
+  <noscript>
+    <iframe src="https://gtm.knoxtrails.com/ns.html?id=GTM-5XX94PVX"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
 
-    
-    <!-- HEADER -->
-    <div id="1"></div>
-    <script>
-        load("header.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(1).innerHTML = req.responseText;
-        }
-    </script>
-    <!-- SLIDER -->
-    <div id="2"></div>
-    <script>
-        load("slider.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(2).innerHTML = req.responseText;
-        }
-    </script>
+  <!-- ================== PAGE SECTIONS ================== -->
+  <div id="header"></div>
+  <div id="slider"></div>
+  <div id="content"></div>
+  <div id="footer"></div>
 
-    <!-- CONTENT SECTION -->
-    <div id="3"></div>
-    <script>
-        load("content.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(3).innerHTML = req.responseText;
-        }
-    </script>
+  <!-- ================== HTML LOADER ================== -->
+  <script>
+    function loadSection(id, url) {
+      var req = new XMLHttpRequest();
+      req.open("GET", url, false);
+      req.send(null);
+      document.getElementById(id).innerHTML = req.responseText;
+    }
 
-    <!-- FOOTER -->
-    <div id="4"></div>
-    <script>
-        load("footer.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(4).innerHTML = req.responseText;
-        }
-    </script>
+    loadSection("header", "header.html");
+    loadSection("slider", "slider.html");
+    loadSection("content", "content.html");
+    loadSection("footer", "footer.html");
+  </script>
 
-</body>
+  <!-- ================== SLIDER JS ================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
-<!-- slider JS START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-    $(document).ready(function()
-    {
-    $('#containerSlider').slick({
+  <script>
+    $(document).ready(function () {
+      $('#containerSlider').slick({
         dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1500,
-        });
+        autoplaySpeed: 1500
+      });
     });
-</script>
-<!-- slider JS ENDS -->
+  </script>
 
-<!-- content JS -->
-<script src="content.js"></script>
+  <!-- ================== CONTENT JS ================== -->
+  <script src="content.js"></script>
 
+</body>
 </html>
