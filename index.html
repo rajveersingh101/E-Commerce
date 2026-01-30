@@ -1,116 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Consent popup styles -->
-<style>
-  #consent-popup {
-    position: fixed;
-    bottom: 20px; left: 20px; right: 20px;
-    background: white; border: 1px solid #ccc; padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    font-family: Arial, sans-serif;
-    z-index: 9999;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  #consent-popup button {
-    margin-left: 10px;
-    padding: 6px 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-  }
-  #consent-accept {
-    background-color: #4caf50;
-    color: white;
-  }
-  #consent-decline {
-    background-color: #f44336;
-    color: white;
-  }
-</style>
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5XX94PVX');</script>
+<!-- End Google Tag Manager -->
 
-<!-- Consent popup HTML -->
-<div id="consent-popup" style="display:none;">
-  <div>
-    We use cookies and analytics to improve your experience. Do you accept analytics tracking?
-  </div>
-  <div>
-    <button id="consent-accept">Accept</button>
-    <button id="consent-decline">Decline</button>
-  </div>
-</div>
-
-<script>
-  (function() {
-    var consentKey = 'user_analytics_consent';
-
-    function loadGTM() {
-      // Setup dataLayer and gtag function
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-
-      // Set consent defaults before loading GTM
-      gtag('consent', 'default', {
-        analytics_storage: 'granted',
-        ad_storage: 'denied',
-        personalization_storage: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
-
-      // Dynamically inject GTM script
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),
-            dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PNCWSJXB');
-    }
-
-    function hidePopup() {
-      var popup = document.getElementById('consent-popup');
-      if (popup) popup.style.display = 'none';
-    }
-
-    function showPopup() {
-      var popup = document.getElementById('consent-popup');
-      if (popup) popup.style.display = 'flex';
-    }
-
-    // Check stored consent
-    var consent = localStorage.getItem(consentKey);
-
-    if (consent === 'granted') {
-      // User already accepted, load GTM
-      loadGTM();
-    } else if (consent === 'denied') {
-      // User declined, do nothing (no GTM)
-      console.log('Analytics consent previously denied, GTM not loaded.');
-    } else {
-      // No consent stored yet, show popup
-      showPopup();
-
-      // Setup button handlers
-      document.getElementById('consent-accept').addEventListener('click', function() {
-        localStorage.setItem(consentKey, 'granted');
-        hidePopup();
-        loadGTM();
-      });
-      document.getElementById('consent-decline').addEventListener('click', function() {
-        localStorage.setItem(consentKey, 'denied');
-        hidePopup();
-        console.log('User declined analytics consent.');
-      });
-    }
-  })();
-</script>
-
-    
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
